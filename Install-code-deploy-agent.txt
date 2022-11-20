@@ -1,0 +1,10 @@
+#!/bin/bash
+yum -y update
+yum install -y ruby
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+cd /home/ec2-user
+aws s3 cp s3://aws-codedeploy-ap-southeast-1/latest/install . --region ap-southeast-1
+chmod +x ./install
+./install auto
